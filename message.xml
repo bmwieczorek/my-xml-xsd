@@ -1,0 +1,6 @@
+<message>
+    <header id="ab12" tid="cd34"/>
+    <header tid="cde345" id="abc123"/>
+    <header tid="cde345" id="abc123">my header text</header>
+    <body id="ef56" mid="gh78"/>
+</message>

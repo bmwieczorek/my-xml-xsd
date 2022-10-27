@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<MyRootElement xmlns="http://bawi.com/my-schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://www.bawi.com/my-schema my-schema.xsd"
+               xmlns:imp="http://bawi.com/my-imported-schema">
+
+    <MyStringElement>Text</MyStringElement>
+    <MyDuplicatedElement myStringAttribute="aaa">AAA</MyDuplicatedElement>
+
+    <!-- Element name defined in parent schema but type imported -->
+    <MyDuplicatedElementWithImportedType myImportedIntAttribute="abc">ABC</MyDuplicatedElementWithImportedType>
+
+    <!-- elements imported by ref with namespace change to imp -->
+    <imp:MyDuplicatedElement myImportedIntAttribute="222">BBB</imp:MyDuplicatedElement>
+    <MyDuplicatedElement xmlns="http://bawi.com/my-imported-schema" myImportedIntAttribute="333">CCC</MyDuplicatedElement>
+    <i:MyDuplicatedElement xmlns:i="http://bawi.com/my-imported-schema" myImportedIntAttribute="444">DDD</i:MyDuplicatedElement>
+
+    <!-- Element name defined in parent schema but type included -->
+    <MyElementWithIncludedType myIncludedIntAttribute="555">EEE</MyElementWithIncludedType>
+</MyRootElement>

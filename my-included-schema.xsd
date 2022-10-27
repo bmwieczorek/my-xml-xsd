@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+           xmlns="http://bawi.com/my-schema" targetNamespace="http://bawi.com/my-schema">
+    <!-- xmlns and targetNamespace have the same namespace as parent schema -->
+
+    <!-- usually used to define types used in parent schema -->
+    <xs:complexType name="MyIncludedStringElementType">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="myIncludedIntAttribute" />
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+</xs:schema>

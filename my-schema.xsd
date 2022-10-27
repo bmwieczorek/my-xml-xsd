@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+           xmlns="http://bawi.com/my-schema" targetNamespace="http://bawi.com/my-schema"
+           xmlns:imported="http://bawi.com/my-imported-schema">
+
+    <xs:import namespace="http://bawi.com/my-imported-schema" schemaLocation="my-imported-schema.xsd"/>
+    <xs:include schemaLocation="my-included-schema.xsd"/>
+
+    <xs:element name="MyRootElement">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="MyStringElement" type="xs:string"/>
+                <xs:element ref="MyDuplicatedElement"/>
+                <xs:element name="MyDuplicatedElementWithImportedType" type="imported:MyDuplicatedElementType"/>
+                <xs:element ref="imported:MyDuplicatedElement" maxOccurs="unbounded"/>
+                <xs:element name="MyElementWithIncludedType" type="MyIncludedStringElementType"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="MyDuplicatedElement">
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:string">
+                    <xs:attribute name="myStringAttribute"/>
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
